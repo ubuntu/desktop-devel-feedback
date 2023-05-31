@@ -1,33 +1,29 @@
 name: Ubuntu Desktop Development Series Feedback
 description: Provide feedback for Ubuntu Desktop Development Series
-title: "[Feedback]: "
+title: "A short summary of your feedback"
 labels: [Feedback]
 body:
-  - type: markdown
-    attributes:
-      value: |
-        ## Feedback for Ubuntu Desktop Development Series
   - type: textarea
     id: description
     attributes:
       label: Description
-      description: Briefly describe your overall impression of the Ubuntu Desktop development release you are using.
+      description: Briefly describe your overall impression.
     validations:
-      required: true
+      required: false
   - type: textarea
     id: positives
     attributes:
       label: Positives
-      description: Please list or describe what you liked about the Ubuntu Desktop development release.
+      description: Please list or describe what you liked.
     validations:
-      required: true
+      required: false
   - type: textarea
     id: negatives
     attributes:
       label: Negatives
-      description: Please list or describe any problems or issues you encountered in the Ubuntu Desktop development release.
+      description: Please list or describe any problems or issues you encountered.
     validations:
-      required: true
+      required: false
   - type: textarea
     id: suggestions
     attributes:
@@ -35,18 +31,11 @@ body:
       description: If applicable, provide any suggestions or ideas for improving the Ubuntu Desktop development release.
     validations:
       required: false
-  - type: input
-    id: version
-    attributes:
-      label: Ubuntu Desktop Version
-      description: Provide the version of Ubuntu Desktop you are using.
-    validations:
-      required: true
   - type: textarea
     id: hardware
     attributes:
       label: Hardware Specifications
-      description: Describe the hardware you are using.
+      description: Describe the hardware you are using (cpu, gpu, monitors, etc).
     validations:
       required: true
   - type: textarea
