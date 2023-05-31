@@ -1,0 +1,58 @@
+name: Ubuntu Desktop Development Series Feedback
+description: Provide feedback for Ubuntu Desktop Development Series
+title: "[Feedback]: "
+labels: [Feedback]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## Feedback for Ubuntu Desktop Development Series
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+      description: Briefly describe your overall impression of the Ubuntu Desktop development release you are using.
+    validations:
+      required: true
+  - type: textarea
+    id: positives
+    attributes:
+      label: Positives
+      description: Please list or describe what you liked about the Ubuntu Desktop development release.
+    validations:
+      required: true
+  - type: textarea
+    id: negatives
+    attributes:
+      label: Negatives
+      description: Please list or describe any problems or issues you encountered in the Ubuntu Desktop development release.
+    validations:
+      required: true
+  - type: textarea
+    id: suggestions
+    attributes:
+      label: Suggestions for Improvement
+      description: If applicable, provide any suggestions or ideas for improving the Ubuntu Desktop development release.
+    validations:
+      required: false
+  - type: input
+    id: version
+    attributes:
+      label: Ubuntu Desktop Version
+      description: Provide the version of Ubuntu Desktop you are using.
+    validations:
+      required: true
+  - type: textarea
+    id: hardware
+    attributes:
+      label: Hardware Specifications
+      description: Describe the hardware you are using.
+    validations:
+      required: true
+  - type: textarea
+    id: additional
+    attributes:
+      label: Additional Context
+      description: Include any additional information or context that might be helpful.
+    validations:
+      required: false
