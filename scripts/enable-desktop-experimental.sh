@@ -1,6 +1,14 @@
 #!/bin/bash
 
 #
+# Welcome to the Mantic Minotaur early dev enablement script.
+#
+# Some elements of this script are deliberately hard coded. Put differently, it is a non-goal
+# for this script to be shared between devel serie and so some values ie `target_serie=mantic` have
+# been hard coded.
+#
+
+#
 # Preamble
 #
 
