@@ -20,15 +20,15 @@ RED="\033[1;31m"
 RESET="\033[0m"
 
 info() {
-  echo -e "${GREEN}INFO: $@${RESET} "
+  echo -e "${GREEN}INFO: $*${RESET} "
 }
 
 warn() {
-  echo -e "${ORANGE}WARN: $@${RESET} "
+  echo -e "${ORANGE}WARN: $*${RESET} "
 }
 
 error() {
-  echo -e "${RED}ERROR: $@${RESET}" 1>&2
+  echo -e "${RED}ERROR: $*${RESET}" 1>&2
 }
 
 newline() {
