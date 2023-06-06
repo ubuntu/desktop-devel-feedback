@@ -73,7 +73,7 @@ ask_if_user_wants_to_continue() {
 
 update() {
   info "Updating OS ..."
-  cmd sudo apt update -y && sudo apt upgrade && sudo snap refresh
+  cmd sudo apt update && sudo apt upgrade && sudo snap refresh
 }
 
 configure_sources() {
@@ -85,18 +85,18 @@ configure_sources() {
 
 install_gnome_shell_extensions() {
   info "Installing the ubuntu shell extensions including tiling"
-  cmd sudo apt install -y gnome-shell-ubuntu-extensions
+  cmd sudo apt install gnome-shell-ubuntu-extensions
 }
 
 install_polkit() {
   info "Installing the new polkit daemon"
   warn "This might make old rules invalid"
-  cmd sudo apt install -y libpolkit-agent-1-0/$devserie-proposed libpolkit-gobject-1-0/$devserie-proposed pkexec/$devserie-proposed policykit-1/$devserie-proposed polkitd/$devserie-proposed gir1.2-polkit-1.0/$devserie-proposed
+  cmd sudo apt install libpolkit-agent-1-0/$devserie-proposed libpolkit-gobject-1-0/$devserie-proposed pkexec/$devserie-proposed policykit-1/$devserie-proposed polkitd/$devserie-proposed gir1.2-polkit-1.0/$devserie-proposed
 }
 
 install_dbus_broker() {
   info "Installing dbus-broker (not removing dbus-daemon though since gdm currently depends on it)"
-  cmd sudo apt install -y dbus-broker #dbus-daemon-
+  cmd sudo apt install dbus-broker #dbus-daemon-
 }
 
 install_app_store() {
