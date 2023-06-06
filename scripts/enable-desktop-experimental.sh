@@ -18,6 +18,7 @@ export LC_ALL=C.UTF-8
 unset LANG LANGUAGE
 
 target_serie="mantic"
+host_serie=$(lsb_release -cs)
 
 #
 # Helpers
@@ -60,20 +61,21 @@ welcome_message() {
   info "Thank you for testing Mantic Minotaur 🐂🏃"
   info "This script configures your machine to be as close to the final version as possible."
   newline
-  warn "This is under active development so expect breakages."
+  warn "This is active development. Expect breakages."
   newline
 }
 
 check_environment() {
-  if ! grep -q $target_serie /etc/apt/sources.list; then
+  if [ "$target_serie" != "$host_serie" ]; then
     error "You need to be on $target_serie to use this script"
     exit 1
+  else
+    info "Mantic Minotaur detected 🥳"
   fi
 }
 
 ask_if_user_wants_to_continue() {
-  info "Mantic Minotaur detected 🥳"
-  read -p "Y or y to continue: " -n 1 -r
+  read -p "Y or y to continue and any other key aborts: " -n 1 -r
   newline
   if [[ ! $REPLY =~ ^[Yy]$ ]]; then
     exit 1
