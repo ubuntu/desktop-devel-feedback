@@ -8,7 +8,8 @@ set -e
 # use english to be able to easily grep from expected strings
 export LC_ALL=C.UTF-8
 unset LANG LANGUAGE
-devserie="mantic"
+
+target_serie="mantic"
 
 #
 # Helpers
@@ -56,8 +57,8 @@ welcome_message() {
 }
 
 check_environment() {
-  if ! grep -q $devserie /etc/apt/sources.list; then
-    error "You need to be on $devserie to use this script"
+  if ! grep -q $target_serie /etc/apt/sources.list; then
+    error "You need to be on $target_serie to use this script"
     exit 1
   fi
 }
@@ -77,9 +78,9 @@ update() {
 }
 
 configure_sources() {
-  if ! grep -qr "$devserie-proposed" /etc/apt; then
-    info "Enabling $devserie-proposed sources ..."
-    cmd sudo add-apt-repository -S "deb http://archive.ubuntu.com/ubuntu/ $devserie-proposed universe main restricted multiverse"
+  if ! grep -qr "$target_serie-proposed" /etc/apt; then
+    info "Enabling $target_serie-proposed sources ..."
+    cmd sudo add-apt-repository -S "deb http://archive.ubuntu.com/ubuntu/ $target_serie-proposed universe main restricted multiverse"
   fi
 }
 
@@ -91,7 +92,7 @@ install_gnome_shell_extensions() {
 install_polkit() {
   info "Installing the new polkit daemon"
   warn "This might make old rules invalid"
-  cmd sudo apt install libpolkit-agent-1-0/$devserie-proposed libpolkit-gobject-1-0/$devserie-proposed pkexec/$devserie-proposed policykit-1/$devserie-proposed polkitd/$devserie-proposed gir1.2-polkit-1.0/$devserie-proposed
+  cmd sudo apt install libpolkit-agent-1-0/$target_serie-proposed libpolkit-gobject-1-0/$target_serie-proposed pkexec/$target_serie-proposed policykit-1/$target_serie-proposed polkitd/$target_serie-proposed gir1.2-polkit-1.0/$target_serie-proposed
 }
 
 install_dbus_broker() {
