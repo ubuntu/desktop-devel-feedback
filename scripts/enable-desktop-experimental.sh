@@ -4,7 +4,7 @@
 # Welcome to the Mantic Minotaur early dev enablement script.
 #
 # Some elements of this script are deliberately hard coded. Put differently, it is a non-goal
-# for this script to be shared between devel serie and so some values ie `target_serie=mantic` have
+# for this script to be shared between devel series and so some values ie `target_series=mantic` have
 # been hard coded.
 #
 
@@ -17,8 +17,8 @@ set -e
 export LC_ALL=C.UTF-8
 unset LANG LANGUAGE
 
-target_serie="mantic"
-host_serie=$(lsb_release -cs)
+target_series="mantic"
+host_series=$(lsb_release -cs)
 
 #
 # Helpers
@@ -66,8 +66,8 @@ welcome_message() {
 }
 
 check_environment() {
-  if [ "$target_serie" != "$host_serie" ]; then
-    error "You need to be on $target_serie to use this script"
+  if [ "$target_series" != "$host_series" ]; then
+    error "You need to be on $target_series to use this script"
     exit 1
   else
     info "Mantic Minotaur detected 🥳"
@@ -88,9 +88,9 @@ update() {
 }
 
 configure_sources() {
-  if ! grep -qr "$target_serie-proposed" /etc/apt; then
-    info "Enabling $target_serie-proposed sources ..."
-    cmd sudo add-apt-repository -S "deb http://archive.ubuntu.com/ubuntu/ $target_serie-proposed universe main restricted multiverse"
+  if ! grep -qr "$target_series-proposed" /etc/apt; then
+    info "Enabling $target_series-proposed sources ..."
+    cmd sudo add-apt-repository -S "deb http://archive.ubuntu.com/ubuntu/ $target_series-proposed universe main restricted multiverse"
   fi
 }
 
@@ -102,7 +102,7 @@ install_gnome_shell_extensions() {
 install_polkit() {
   info "Installing the new polkit daemon"
   warn "This might make old rules invalid"
-  cmd sudo apt install libpolkit-agent-1-0/$target_serie-proposed libpolkit-gobject-1-0/$target_serie-proposed pkexec/$target_serie-proposed policykit-1/$target_serie-proposed polkitd/$target_serie-proposed gir1.2-polkit-1.0/$target_serie-proposed
+  cmd sudo apt install libpolkit-agent-1-0/$target_series-proposed libpolkit-gobject-1-0/$target_series-proposed pkexec/$target_series-proposed policykit-1/$target_series-proposed polkitd/$target_series-proposed gir1.2-polkit-1.0/$target_series-proposed
 }
 
 install_dbus_broker() {
