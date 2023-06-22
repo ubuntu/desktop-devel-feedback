@@ -99,12 +99,6 @@ install_gnome_shell_extensions() {
   cmd sudo apt install gnome-shell-ubuntu-extensions
 }
 
-install_polkit() {
-  info "Installing the new polkit daemon"
-  warn "This might make old rules invalid"
-  cmd sudo apt install libpolkit-agent-1-0/$target_series-proposed libpolkit-gobject-1-0/$target_series-proposed pkexec/$target_series-proposed policykit-1/$target_series-proposed polkitd/$target_series-proposed gir1.2-polkit-1.0/$target_series-proposed
-}
-
 install_dbus_broker() {
   info "Installing dbus-broker (not removing dbus-daemon though since gdm currently depends on it)"
   cmd sudo apt install dbus-broker #dbus-daemon-
@@ -132,7 +126,6 @@ main() {
   update
   configure_sources
   install_gnome_shell_extensions
-  install_polkit
   install_dbus_broker
   install_app_store
   install_firmware_updater
